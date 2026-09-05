@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Prefabs
   m_GUID: 8182bd45dde7f714480bc259a4a48af6
   m_SerializeEntries:
+  - m_GUID: 350790eedbcce6e41a54be7a668e0654
+    m_Address: Car
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c4d288f6a9e28147b314fe1734da7f9
     m_Address: Camera
     m_ReadOnly: 0

@@ -5,16 +5,18 @@ using UnityEngine;
 using Zenject;
 
 namespace Features.CameraModule.Scripts {
-    public class CameraService : ICameraService{
+    public class CameraService : ICameraService {
         private readonly IAddressableService _addressableService;
         private readonly IInstantiator _instantiator;
         public Camera Camera { get; private set; }
+
+        private Transform _target;
 
         public CameraService([CanBeNull] IAddressableService addressableService, IInstantiator instantiator) {
             _addressableService = addressableService;
             _instantiator = instantiator;
         }
-        
+
         public async UniTask Initialize() {
             await SpawnCamera();
         }
