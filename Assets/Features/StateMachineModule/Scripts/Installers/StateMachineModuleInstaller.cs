@@ -1,7 +1,7 @@
 using Zenject;
 
 namespace Features.StateMachineModule.Scripts.Installers {
-    public class StateMichineModuleInstaller : Installer<StateMichineModuleInstaller>
+    public class StateMachineModuleInstaller : Installer<StateMachineModuleInstaller>
     {
         public override void InstallBindings() {
             Container.BindInterfacesAndSelfTo<StateMachineStatesProvider>().AsSingle();
