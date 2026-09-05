@@ -23,7 +23,6 @@ namespace Features.StateMachineModule.Scripts.States {
         private async UniTaskVoid Bootstrap() {
 
             await _cameraService.Initialize();
-            await _carService.Initialize();
             _stateMachine.ChangeState<GameState>();
         }
     }
