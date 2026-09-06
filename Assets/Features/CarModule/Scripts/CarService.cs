@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Features.AddressableModule.Scripts;
+using Features.LevelModule.Scripts;
 using UnityEngine;
 using Zenject;
 
@@ -8,18 +9,22 @@ namespace Features.CarModule.Scripts {
         private readonly IInstantiator _instantiator;
         private readonly IAddressableService _addressableService;
         private readonly ICarMover _carMover;
+        private readonly ILevelService _levelService;
 
         private CarController _carController;
 
-        public CarService(IInstantiator instantiator, IAddressableService addressableService, ICarMover carMover) {
+        public CarService(IInstantiator instantiator, IAddressableService addressableService, ICarMover carMover,
+            ILevelService levelService) {
             _instantiator = instantiator;
             _addressableService = addressableService;
             _carMover = carMover;
+            _levelService = levelService;
         }
 
         public async UniTask Initialize() {
             await SpawnCar();
-            _carMover.Initialize(_carController);
+            LevelData levelData = _levelService.GetCurrentLevelData();
+            _carMover.Initialize(_carController, levelData);
         }
 
         public void StartMovement() {

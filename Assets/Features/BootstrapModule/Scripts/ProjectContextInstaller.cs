@@ -1,6 +1,7 @@
 using Features.AddressableModule.Scripts.Installers;
 using Features.CameraModule.Scripts.Installers;
 using Features.CarModule.Scripts.Installers;
+using Features.LevelModule.Scripts.Installers;
 using Features.SceneLoaderModule.Installers;
 using Features.StateMachineModule.Scripts.Installers;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Features.BootstrapModule.Scripts {
             AddressableModuleInstaller.Install(Container);
             CameraModuleInstaller.Install(Container);
             CarModuleInstaller.Install(Container);
+            LevelModuleInstaller.Install(Container);
             StateMachineModuleInstaller.Install(Container);
             SceneLoaderModuleInstaller.Install(Container);
         }

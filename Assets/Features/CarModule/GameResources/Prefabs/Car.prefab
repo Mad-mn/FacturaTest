@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88635aaff74f473a9ba6690b17437573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Features.CarModule.Scripts.CarController
-  _cameraPoint: {fileID: 0}
+  _view: {fileID: 3382635889388307349}
 --- !u!1001 &3996887014053451701
 PrefabInstance:
   m_ObjectHideFlags: 0
