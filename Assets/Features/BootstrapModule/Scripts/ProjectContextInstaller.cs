@@ -1,6 +1,7 @@
 using Features.AddressableModule.Scripts.Installers;
 using Features.CameraModule.Scripts.Installers;
 using Features.CarModule.Scripts.Installers;
+using Features.GameSessionModule.Scripts.Installers;
 using Features.LevelModule.Scripts.Installers;
 using Features.SceneLoaderModule.Installers;
 using Features.StateMachineModule.Scripts.Installers;
@@ -15,6 +16,7 @@ namespace Features.BootstrapModule.Scripts {
             AddressableModuleInstaller.Install(Container);
             CameraModuleInstaller.Install(Container);
             CarModuleInstaller.Install(Container);
+            GameSessionModuleInstaller.Install(Container);
             LevelModuleInstaller.Install(Container);
             StateMachineModuleInstaller.Install(Container);
             SceneLoaderModuleInstaller.Install(Container);

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fca57173e14660ba84be1157edc52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Features.StartViewModule.Scripts.StartView
+  <StartButton>k__BackingField: {fileID: 9127642832592679183}
 --- !u!1 &5935093501502917980
 GameObject:
   m_ObjectHideFlags: 0

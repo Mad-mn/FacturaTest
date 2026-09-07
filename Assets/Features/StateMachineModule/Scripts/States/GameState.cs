@@ -12,28 +12,28 @@ namespace Features.StateMachineModule.Scripts.States {
         private readonly ICarService _carService;
         private readonly IViewService _viewService;
 
-        public GameState(IStateMachine stateMachine, ISceneLoader sceneLoader, ICarService carService,
-            IViewService viewService) {
+        public GameState(IStateMachine stateMachine, ISceneLoader sceneLoader, ICarService carService, IViewService viewService) {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _carService = carService;
             _viewService = viewService;
         }
+
         public void Enter() {
-            InitGameSession().Forget();
+            InitGameSession()
+                .Forget();
         }
 
-        public void Exit() {
-        }
+        public void Exit() { }
 
         private async UniTaskVoid InitGameSession() {
             await LoadGameScene();
             await _carService.Initialize();
-            _viewService.HideView(ViewType.Loading);
             
+            _viewService.HideView(ViewType.Loading);
             _viewService.ShowView<StartView>(ViewType.StartView);
         }
-        
+
         private async UniTask LoadGameScene() {
             await _sceneLoader.LoadSceneAsync(SceneType.Game, CancellationToken.None);
         }
