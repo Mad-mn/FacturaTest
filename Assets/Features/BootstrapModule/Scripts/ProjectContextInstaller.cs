@@ -1,6 +1,9 @@
+using Feature.CoroutineRunnerModule.Scripts.Installers;
 using Features.AddressableModule.Scripts.Installers;
+using Features.BulletModule.Scripts.Installers;
 using Features.CameraModule.Scripts.Installers;
 using Features.CarModule.Scripts.Installers;
+using Features.ConfigHandlerModule.Scripts.Installers;
 using Features.GameSessionModule.Scripts.Installers;
 using Features.InputModule.Scripts.Installers;
 using Features.LevelModule.Scripts.Installers;
@@ -8,6 +11,7 @@ using Features.SceneLoaderModule.Installers;
 using Features.StateMachineModule.Scripts.Installers;
 using Features.TurretModule.Scripts.Installers;
 using Features.ViewModule.Scripts.Installers;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
@@ -16,8 +20,11 @@ namespace Features.BootstrapModule.Scripts {
     public class ProjectContextInstaller : ScriptableObjectInstaller<ProjectContextInstaller> {
         public override void InstallBindings() {
             AddressableModuleInstaller.Install(Container);
+            BulletModuleInstaller.Install(Container);
             CameraModuleInstaller.Install(Container);
             CarModuleInstaller.Install(Container);
+            ConfigHandlerModuleInstaller.Install(Container);
+            CoroutineRunnerInstaller.Install(Container);
             GameSessionModuleInstaller.Install(Container);
             InputModuleInstaller.Install(Container);
             LevelModuleInstaller.Install(Container);

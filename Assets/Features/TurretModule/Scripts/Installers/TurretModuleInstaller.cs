@@ -9,6 +9,10 @@ namespace Features.TurretModule.Scripts.Installers {
 
             Container.BindInterfacesAndSelfTo<TurretRotationController>()
                 .AsSingle();
+
+            Container.Bind<ITurretFireController>()
+                .To<TurretFireController>()
+                .AsSingle();
         }
     }
 }

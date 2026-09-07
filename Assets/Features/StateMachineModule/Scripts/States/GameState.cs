@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Features.BulletModule.Scripts;
 using Features.CarModule.Scripts;
 using Features.SceneLoaderModule.Scripts;
 using Features.StartViewModule.Scripts;
@@ -13,14 +14,16 @@ namespace Features.StateMachineModule.Scripts.States {
         private readonly ICarService _carService;
         private readonly IViewService _viewService;
         private readonly ITurretService _turretService;
+        private readonly IBulletService _bulletService;
 
         public GameState(IStateMachine stateMachine, ISceneLoader sceneLoader, ICarService carService, IViewService viewService,
-            ITurretService turretService) {
+            ITurretService turretService, IBulletService bulletService) {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _carService = carService;
             _viewService = viewService;
             _turretService = turretService;
+            _bulletService = bulletService;
         }
 
         public void Enter() {
@@ -34,6 +37,7 @@ namespace Features.StateMachineModule.Scripts.States {
             await LoadGameScene();
             await _carService.Initialize();
             await _turretService.Initialize();
+            await _bulletService.Initialize();
             
             _viewService.HideView(ViewType.Loading);
             _viewService.ShowView<StartView>(ViewType.StartView);

@@ -1,18 +1,21 @@
 using Features.CameraModule.Scripts;
+using Features.ConfigHandlerModule.Scripts;
+using Features.ConfigHandlerModule.Scripts.Turret;
 using Features.InputModule.Scripts;
 using UnityEngine;
 using Zenject;
 
 namespace Features.TurretModule.Scripts {
     public class TurretRotationController : ITurretRotationController, ITickable {
-        private const float MAX_SIDE_ROTATION_ANGLE = 60f;
         private readonly IInputService _inputService;
+        private readonly IConfigHandler<TurretConfig> _turretConfigHandler;
 
         private TurretController _turretController;
         private bool _canRotate;
 
-        public TurretRotationController(IInputService inputService) {
+        public TurretRotationController(IInputService inputService, IConfigHandler<TurretConfig> turretConfigHandler) {
             _inputService = inputService;
+            _turretConfigHandler = turretConfigHandler;
         }
         
         public void Initialize(TurretController turretController) {
@@ -35,8 +38,11 @@ namespace Features.TurretModule.Scripts {
                 return;
             
             float deltaX = tapPosition.x / Screen.width;
-            float rotationAngle = (deltaX * MAX_SIDE_ROTATION_ANGLE * 2) - MAX_SIDE_ROTATION_ANGLE;
+            float rotationAngle = (deltaX * Config.MaxSideRotationAngle * 2) - Config.MaxSideRotationAngle;
             _turretController.View.rotation = Quaternion.Euler(0f, rotationAngle, 0f);
         }
+        
+        private TurretConfig Config => _turretConfigHandler.Config;
+
     }
 }
