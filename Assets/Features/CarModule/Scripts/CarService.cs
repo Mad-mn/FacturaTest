@@ -31,6 +31,10 @@ namespace Features.CarModule.Scripts {
             _carMover.Move();
         }
 
+        public Transform GetTurretSpawnTransform() {
+                return _carController != null ? _carController.TurretSpawnTransform : null;
+        }
+
         public void StopMovement() {
             _carMover.Stop();
         }

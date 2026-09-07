@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ee2e34625aa8a4aba12274b3e35a81
+    m_Address: Turret
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adb72d0b1d75a5a4ab30af020c3e1fe8
     m_Address: UIRoot
     m_ReadOnly: 0

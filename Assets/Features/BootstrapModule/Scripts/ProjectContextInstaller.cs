@@ -2,9 +2,11 @@ using Features.AddressableModule.Scripts.Installers;
 using Features.CameraModule.Scripts.Installers;
 using Features.CarModule.Scripts.Installers;
 using Features.GameSessionModule.Scripts.Installers;
+using Features.InputModule.Scripts.Installers;
 using Features.LevelModule.Scripts.Installers;
 using Features.SceneLoaderModule.Installers;
 using Features.StateMachineModule.Scripts.Installers;
+using Features.TurretModule.Scripts.Installers;
 using Features.ViewModule.Scripts.Installers;
 using UnityEngine;
 using Zenject;
@@ -17,9 +19,11 @@ namespace Features.BootstrapModule.Scripts {
             CameraModuleInstaller.Install(Container);
             CarModuleInstaller.Install(Container);
             GameSessionModuleInstaller.Install(Container);
+            InputModuleInstaller.Install(Container);
             LevelModuleInstaller.Install(Container);
             StateMachineModuleInstaller.Install(Container);
             SceneLoaderModuleInstaller.Install(Container);
+            TurretModuleInstaller.Install(Container);
             ViewModuleInstaller.Install(Container);
         }
     }
