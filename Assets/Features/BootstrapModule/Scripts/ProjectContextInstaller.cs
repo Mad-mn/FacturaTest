@@ -4,6 +4,7 @@ using Features.CarModule.Scripts.Installers;
 using Features.LevelModule.Scripts.Installers;
 using Features.SceneLoaderModule.Installers;
 using Features.StateMachineModule.Scripts.Installers;
+using Features.ViewModule.Scripts.Installers;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,7 @@ namespace Features.BootstrapModule.Scripts {
             LevelModuleInstaller.Install(Container);
             StateMachineModuleInstaller.Install(Container);
             SceneLoaderModuleInstaller.Install(Container);
+            ViewModuleInstaller.Install(Container);
         }
     }
 }
