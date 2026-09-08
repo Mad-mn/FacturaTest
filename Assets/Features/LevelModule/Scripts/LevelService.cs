@@ -1,27 +1,30 @@
 using Cysharp.Threading.Tasks;
 using Features.AddressableModule.Scripts;
+using Features.ConfigHandlerModule.Scripts;
+using Features.LevelModule.Scripts.Configs;
 
 namespace Features.LevelModule.Scripts {
     public class LevelService : ILevelService {
-        private readonly IAddressableService _addressableService;
+        private readonly IConfigHandler<LevelConfigs> _configHandler;
 
-        private LevelConfigsHandler _levelConfigsHandler;
-
-        public LevelService(IAddressableService addressableService) {
-            _addressableService = addressableService;
+        public LevelService(IConfigHandler<LevelConfigs> configHandler) {
+            _configHandler = configHandler;
         }
 
         public async UniTask Initialize() {
-            _levelConfigsHandler = await _addressableService.GetAsset<LevelConfigsHandler>(AssetConstants.LEVEL_CONFIGS_HANDLER);
+             await _configHandler.Initialize();
         }
 
         public LevelData GetLevelData(int levelIndex) {
-            return _levelConfigsHandler.GetLevelConfig(levelIndex).LevelData;
+            return LevelConfigs.GetLevelData(levelIndex);
         }
 
         public LevelData GetCurrentLevelData() {
             /// Take current level index from saves
             return GetLevelData(1);
         }
+
+        private LevelConfigs LevelConfigs =>
+            _configHandler.Config;
     }
 }

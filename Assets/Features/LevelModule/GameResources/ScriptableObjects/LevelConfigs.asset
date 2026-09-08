@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1b00ab8f794958bf473b19b1d7e7cc, type: 3}
-  m_Name: LevelConfig
-  m_EditorClassIdentifier: Assembly-CSharp::Features.LevelModule.Scripts.LevelConfig
-  _levelData:
-    MovingDistance: 150
-    CarSpeed: 5
-    SideMovingFrequency: 6
-    RoadWidth: 3.4
+  m_Name: LevelConfigs
+  m_EditorClassIdentifier: Assembly-CSharp::Features.LevelModule.Scripts.Configs.LevelConfigs
+  _levelsData:
+  - {fileID: 11400000, guid: 4b10574e338b46a468fed308da8968de, type: 2}

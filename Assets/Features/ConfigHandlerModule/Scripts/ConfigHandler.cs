@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Features.ConfigHandlerModule.Scripts {
     public abstract class ConfigHandler<TConfig> : IConfigHandler<TConfig> where TConfig : ScriptableObject {
         private readonly IAddressableService _addressableService;
-        protected virtual string ConfigName { get; }
+        protected abstract string ConfigName { get; }
 
         public ConfigHandler(IAddressableService addressableService) {
             _addressableService = addressableService;

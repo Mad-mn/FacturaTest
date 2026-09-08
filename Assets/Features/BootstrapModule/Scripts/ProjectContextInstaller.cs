@@ -4,6 +4,7 @@ using Features.BulletModule.Scripts.Installers;
 using Features.CameraModule.Scripts.Installers;
 using Features.CarModule.Scripts.Installers;
 using Features.ConfigHandlerModule.Scripts.Installers;
+using Features.EnemyModule.Scripts.Installers;
 using Features.GameSessionModule.Scripts.Installers;
 using Features.InputModule.Scripts.Installers;
 using Features.LevelModule.Scripts.Installers;
@@ -25,6 +26,7 @@ namespace Features.BootstrapModule.Scripts {
             CarModuleInstaller.Install(Container);
             ConfigHandlerModuleInstaller.Install(Container);
             CoroutineRunnerInstaller.Install(Container);
+            EnemyModuleInstaller.Install(Container);
             GameSessionModuleInstaller.Install(Container);
             InputModuleInstaller.Install(Container);
             LevelModuleInstaller.Install(Container);

@@ -2,13 +2,14 @@ using Cysharp.Threading.Tasks;
 using Features.BulletModule.Scripts.Pools;
 using Features.ConfigHandlerModule.Scripts;
 using Features.ConfigHandlerModule.Scripts.Bullet;
+using Features.PoolModule.Scripts;
 
 namespace Features.BulletModule.Scripts {
     public class BulletService : IBulletService {
-        private readonly IBulletPool _bulletPool;
+        private readonly IPool<Bullet> _bulletPool;
         private readonly IConfigHandler<BulletConfig> _bulletConfigHandler;
 
-        public BulletService(IBulletPool bulletPool, IConfigHandler<BulletConfig> bulletConfigHandler) {
+        public BulletService(IPool<Bullet> bulletPool, IConfigHandler<BulletConfig> bulletConfigHandler) {
             _bulletPool = bulletPool;
             _bulletConfigHandler = bulletConfigHandler;
         }

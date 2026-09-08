@@ -29,7 +29,6 @@ namespace Features.StateMachineModule.Scripts.States {
         public void Exit() {}
 
         private async UniTaskVoid Bootstrap() {
-
             await _cameraService.Initialize();
             await _viewService.Initialize();
             _viewService.ShowView<LoadingView>(ViewType.Loading);
