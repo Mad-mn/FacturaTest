@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletConfig
   m_EditorClassIdentifier: Assembly-CSharp::Features.ConfigHandlerModule.Scripts.Bullet.BulletConfig
   Speed: 20
-  Damage: 10
-  Range: 100
+  Damage: 50
+  Range: 50

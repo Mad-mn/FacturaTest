@@ -1,6 +1,8 @@
 namespace Features.ViewModule.Scripts {
     public enum ViewType {
-        StartView = 1,
+        Start = 1,
         Loading = 2,
+        Lose = 3,
+        Win = 4
     }
 }

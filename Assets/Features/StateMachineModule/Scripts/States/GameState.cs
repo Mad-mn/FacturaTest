@@ -44,7 +44,7 @@ namespace Features.StateMachineModule.Scripts.States {
             await _enemyService.Initialize();
             
             _viewService.HideView(ViewType.Loading);
-            _viewService.ShowView<StartView>(ViewType.StartView);
+            _viewService.ShowView<StartView>(ViewType.Start);
         }
 
         private async UniTask LoadGameScene() {

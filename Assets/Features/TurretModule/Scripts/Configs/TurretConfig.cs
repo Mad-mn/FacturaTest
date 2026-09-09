@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.ConfigHandlerModule.Scripts.Turret {
+namespace Features.TurretModule.Scripts.Configs {
     [CreateAssetMenu(fileName = "TurretConfig", menuName = "Turret/TurretConfig")]
     public class TurretConfig : ScriptableObject{
        [field: SerializeField] public float FireRate = 1;

@@ -1,6 +1,7 @@
 using Features.AddressableModule.Scripts;
+using Features.ConfigHandlerModule.Scripts;
 
-namespace Features.ConfigHandlerModule.Scripts.Turret {
+namespace Features.TurretModule.Scripts.Configs {
     public class TurretConfigHandler : ConfigHandler<TurretConfig> {
         public TurretConfigHandler(IAddressableService addressableService) : base(addressableService) { }
         

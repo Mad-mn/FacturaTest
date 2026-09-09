@@ -8,16 +8,15 @@ namespace Features.EnemyModule.Scripts {
         [SerializeField] private EnemyAnimatorController _animatorController;
         [SerializeField] private HealthBar _healthBar;
         
-        private float _maxHealth;
         private float _currentHealth;
         private bool _isDead;
 
         public event Action OnDie;
 
         public void Initialize(float max) {
-            _maxHealth = max;
             _currentHealth = max;
             _healthBar.Setup(max);
+            _isDead = false;
         }
 
         public void TakeDamage(float damage) {

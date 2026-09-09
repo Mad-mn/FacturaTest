@@ -87,6 +87,7 @@ MonoBehaviour:
   _agent: {fileID: 3999704659783582794}
   _animatorController: {fileID: 5258354650842005058}
   _health: {fileID: 5311375294643508182}
+  _rigidbody: {fileID: 5331733569872016073}
 --- !u!195 &3999704659783582794
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -177,9 +178,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 1.2
+  m_Height: 1.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &5258354650842005058
 MonoBehaviour:
   m_ObjectHideFlags: 0

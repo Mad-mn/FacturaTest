@@ -11,6 +11,12 @@ namespace Features.EnemyModule.Scripts {
         [SerializeField] private float _takeDamagePunchScaleMultiplier = 1.5f;
         [SerializeField] private float _takeDamageAnimationDuration = 0.5f;
         [SerializeField] private Transform _view;
+        
+        private Vector3 _defaultScale;
+
+        private void Awake() {
+            _defaultScale = _view.transform.localScale;
+        }
 
         public void StartRun() {
             _animator.SetBool(Run, true);
@@ -22,7 +28,10 @@ namespace Features.EnemyModule.Scripts {
 
         public void PlayDamageAnimation(Action callback) {
             _view.DOPunchScale(Vector3.one * _takeDamagePunchScaleMultiplier, _takeDamageAnimationDuration, 1)
-                .OnComplete(() => callback?.Invoke());
+                .OnComplete(() => {
+                                _view.transform.localScale = _defaultScale;
+                                callback?.Invoke();
+                            });
         }
     }
 }

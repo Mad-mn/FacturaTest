@@ -10,10 +10,11 @@ namespace Features.EnemyModule.Scripts {
         private readonly ILevelService _levelService;
         private readonly IPool<Enemy> _pool;
         private readonly IConfigHandler<EnemySpawnConfig> _configHandler;
-        
+
         private List<Enemy> _enemies = new List<Enemy>();
-        
-        public IReadOnlyList<Enemy> Enemies => _enemies;
+
+        public IReadOnlyList<Enemy> Enemies =>
+            _enemies;
 
         public EnemySpawner(ILevelService levelService, IPool<Enemy> pool, IConfigHandler<EnemySpawnConfig> configHandler) {
             _levelService = levelService;
@@ -58,10 +59,21 @@ namespace Features.EnemyModule.Scripts {
         }
 
         private void OnDie(Enemy enemy) {
+            enemy.OnDie -= OnDie;
+            if (_enemies.Contains(enemy))
+                _enemies.Remove(enemy);
+
             _pool.Return(enemy);
         }
 
         public void Respawn() {
+            foreach (Enemy enemy in _enemies) {
+                enemy.OnDie -= OnDie;
+                _pool.Return(enemy);
+            }
+
+            _enemies.Clear();
+            Spawn();
         }
 
         private int GetEnemyCount() {

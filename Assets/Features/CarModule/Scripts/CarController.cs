@@ -23,7 +23,12 @@ namespace Features.CarModule.Scripts {
             _health.OnDie += Die;
         }
 
+        public void Reset() {
+            _health.OnDie -= Die;
+        }
+
         private void Die() {
+            Reset();
             OnDie?.Invoke();
         }
     }

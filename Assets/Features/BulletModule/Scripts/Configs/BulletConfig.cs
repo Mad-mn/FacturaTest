@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.ConfigHandlerModule.Scripts.Bullet {
+namespace Features.BulletModule.Scripts.Configs {
     [CreateAssetMenu(fileName = "BulletConfig", menuName = "Bullet/BulletConfig")]
     public class BulletConfig : ScriptableObject {
         [field: SerializeField] public float Speed = 20;

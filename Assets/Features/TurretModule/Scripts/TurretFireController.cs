@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using Feature.CoroutineRunnerModule.Scripts;
 using Features.BulletModule.Scripts;
 using Features.ConfigHandlerModule.Scripts;
-using Features.ConfigHandlerModule.Scripts.Turret;
+using Features.TurretModule.Scripts.Configs;
 using UnityEngine;
 
 namespace Features.TurretModule.Scripts {

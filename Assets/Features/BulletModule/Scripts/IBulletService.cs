@@ -5,5 +5,6 @@ namespace Features.BulletModule.Scripts {
         UniTask Initialize();
         Bullet Get();
         void Return(Bullet bullet);
+        void Reset();
     }
 }

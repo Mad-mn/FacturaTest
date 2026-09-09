@@ -22,6 +22,10 @@ namespace Features.EnemyModule.Scripts.Installers {
             Container.Bind<IEnemySpawner>()
                 .To<EnemySpawner>()
                 .AsSingle();
+
+            Container.Bind<IConfigHandler<EnemyConfig>>()
+                .To<EnemyConfigHandler<EnemyConfig>>()
+                .AsSingle();
         }
     }
 }

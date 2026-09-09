@@ -1,7 +1,7 @@
 using Features.CameraModule.Scripts;
 using Features.ConfigHandlerModule.Scripts;
-using Features.ConfigHandlerModule.Scripts.Turret;
 using Features.InputModule.Scripts;
+using Features.TurretModule.Scripts.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -24,6 +24,10 @@ namespace Features.TurretModule.Scripts {
 
         public void ChangeRotatingState(bool canRotate) {
             _canRotate = canRotate;
+        }
+
+        public void Reset() {
+            _turretController.View.transform.forward = Vector3.forward;
         }
 
         public void Tick() {

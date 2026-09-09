@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Configs
   m_GUID: b638c8c1ec642a547aa1863ba196795f
   m_SerializeEntries:
+  - m_GUID: 790624b2f8dcd204181b490dae417360
+    m_Address: EnemyConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 883c4f61491a3d84a919b3c356ee029a
     m_Address: LevelConfigs
     m_ReadOnly: 0

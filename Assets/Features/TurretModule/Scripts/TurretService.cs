@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using Features.AddressableModule.Scripts;
 using Features.CarModule.Scripts;
 using Features.ConfigHandlerModule.Scripts;
-using Features.ConfigHandlerModule.Scripts.Turret;
+using Features.TurretModule.Scripts.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -38,6 +38,7 @@ namespace Features.TurretModule.Scripts {
             _turretRotationController.Initialize(_turretController);
             _turretFireController.Initialize(_turretController);
             _carModel.OnDie += StopFire;
+            _carModel.OnMovementComplete += StopFire;
         }
 
         public void StartFire() {
@@ -57,6 +58,7 @@ namespace Features.TurretModule.Scripts {
 
         public void Dispose() {
             _carModel.OnDie -= StopFire;
+            _carModel.OnMovementComplete -= StopFire;
         }
     }
 }

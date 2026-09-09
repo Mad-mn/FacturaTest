@@ -8,6 +8,7 @@ using Zenject;
 
 namespace Features.CarModule.Scripts {
     public class CarService : ICarService {
+        private readonly Vector3 _startPosition = Vector3.zero;
         private readonly IInstantiator _instantiator;
         private readonly IAddressableService _addressableService;
         private readonly ICarMover _carMover;
@@ -17,6 +18,7 @@ namespace Features.CarModule.Scripts {
 
         private CarController _carController;
         private CarCamera _carCamera;
+        private LevelData _levelData;
 
         public CarService(IInstantiator instantiator, IAddressableService addressableService, ICarMover carMover, ILevelService levelService,
             ICameraService cameraService, CarModel carModel) {
@@ -29,19 +31,15 @@ namespace Features.CarModule.Scripts {
         }
 
         public async UniTask Initialize() {
-            LevelData levelData = _levelService.GetCurrentLevelData();
-            await SpawnCar(levelData);
+            _levelData = _levelService.GetCurrentLevelData();
+            await SpawnCar();
             await SpawnCarCamera();
-            _carMover.Initialize(_carController, levelData);
+            _carMover.Initialize(_carController, _levelData);
         }
 
         private async UniTask SpawnCarCamera() {
             _carCamera = await _cameraService.CreateCarCamera();
             _carCamera.SetupTarget(_carController.CameraPoint.transform);
-        }
-
-        public void StartMovement() {
-            _carMover.Move();
         }
 
         public Transform GetTurretSpawnTransform() {
@@ -50,15 +48,25 @@ namespace Features.CarModule.Scripts {
                 : null;
         }
 
+        public void StartMovement() {
+            _carMover.Move();
+        }
+
         public void StopMovement() {
             _carMover.Stop();
         }
 
-        private async UniTask SpawnCar(LevelData levelData) {
+        public void SetOnStart() {
+            _carController.transform.position = _startPosition;
+            _carController.transform.forward = Vector3.forward;
+            _carController.Reset();
+            _carController.Initialize(_levelData.CarHealth);
+        }
+
+        private async UniTask SpawnCar() {
             GameObject prefab = await _addressableService.GetAsset<GameObject>(AssetConstants.CAR);
             _carController = _instantiator.InstantiatePrefabForComponent<CarController>(prefab);
-            _carController.transform.position = Vector3.zero;
-            _carController.Initialize(levelData.CarHealth);
+            SetOnStart();
             _carController.OnDie += Die;
         }
 

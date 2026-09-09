@@ -4,8 +4,10 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using Features.AddressableModule.Scripts;
 using Features.LoadingViewModule.Scripts;
+using Features.LoseViewModule.Scripts;
 using Features.StartViewModule.Scripts;
 using Features.ViewModule.Scripts.Configs;
+using Features.WinViewModule.Scripts;
 using UnityEngine;
 
 namespace Features.ViewModule.Scripts {
@@ -36,10 +38,16 @@ namespace Features.ViewModule.Scripts {
         private void RegisterPresenters() {
             _register = new Dictionary<ViewType, Type>() {
                 {
-                    ViewType.StartView, typeof(StartPresenter)
+                    ViewType.Start, typeof(StartPresenter)
                 },
                 {
                     ViewType.Loading, typeof(LoadingPresenter)
+                },
+                {
+                    ViewType.Lose, typeof(LosePresenter)
+                },
+                {
+                    ViewType.Win, typeof(WinPresenter)
                 },
             };
         }

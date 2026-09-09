@@ -19,6 +19,7 @@ namespace Features.CarModule.Scripts {
             _maxHealth = max;
             _currentHealth = _maxHealth;
             _healthBar.Setup(_maxHealth);
+            _isDead = false;
         }
 
         public void TakeDamage(float damage) {
@@ -34,7 +35,8 @@ namespace Features.CarModule.Scripts {
         }
 
         private void CheckForDie() {
-            if (_currentHealth <= 0) {
+            if (_currentHealth <= 0 && !_isDead) {
+                _isDead = true;
                 OnDie?.Invoke();
             }
         }

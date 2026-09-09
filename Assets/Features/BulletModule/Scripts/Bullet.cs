@@ -1,7 +1,7 @@
 using System;
 using DG.Tweening;
+using Features.BulletModule.Scripts.Configs;
 using Features.ConfigHandlerModule.Scripts;
-using Features.ConfigHandlerModule.Scripts.Bullet;
 using Features.HealthModule.Scripts;
 using UnityEngine;
 using Zenject;
@@ -42,7 +42,7 @@ namespace Features.BulletModule.Scripts {
 
         private void OnCollisionEnter(Collision other) {
             if (other.gameObject.TryGetComponent(out IHealth health)) {
-                health.TakeDamage(50);
+                health.TakeDamage(Config.Damage);
             }
 
             OnHit?.Invoke(this);

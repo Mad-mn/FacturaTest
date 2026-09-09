@@ -6,5 +6,6 @@ namespace Features.CarModule.Scripts {
         UniTask Initialize();
         void StartMovement();
         Transform GetTurretSpawnTransform();
+        void SetOnStart();
     }
 }

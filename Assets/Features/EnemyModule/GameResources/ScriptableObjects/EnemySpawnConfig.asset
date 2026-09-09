@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557a23e574924eedadd7b17a04c9d595, type: 3}
   m_Name: EnemySpawnConfig
   m_EditorClassIdentifier: Assembly-CSharp::Features.EnemyModule.Scripts.Configs.EnemySpawnConfig
-  <MinZDistance>k__BackingField: 5
+  <MinZDistance>k__BackingField: 7
   <MinCountInRow>k__BackingField: 1
   <MaxCountInRow>k__BackingField: 5
   <ChanceForNextEnemy>k__BackingField: 0.3
