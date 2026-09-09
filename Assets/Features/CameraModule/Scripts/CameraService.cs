@@ -9,16 +9,19 @@ namespace Features.CameraModule.Scripts {
         private readonly IAddressableService _addressableService;
         private readonly IInstantiator _instantiator;
         public Camera Camera { get; private set; }
-
-        private Transform _target;
-
-        public CameraService([CanBeNull] IAddressableService addressableService, IInstantiator instantiator) {
+        
+        public CameraService(IAddressableService addressableService, IInstantiator instantiator) {
             _addressableService = addressableService;
             _instantiator = instantiator;
         }
 
         public async UniTask Initialize() {
             await SpawnCamera();
+        }
+
+        public async UniTask<CarCamera> CreateCarCamera() {
+            GameObject prefab = await _addressableService.GetAsset<GameObject>(AssetConstants.CAR_CAMERA);
+            return _instantiator.InstantiatePrefabForComponent<CarCamera>(prefab);
         }
 
         private async UniTask SpawnCamera() {

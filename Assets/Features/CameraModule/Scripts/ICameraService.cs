@@ -5,5 +5,6 @@ namespace Features.CameraModule.Scripts {
     public interface ICameraService {
         Camera Camera { get; }
         UniTask Initialize();
+        UniTask<CarCamera> CreateCarCamera();
     }
 }

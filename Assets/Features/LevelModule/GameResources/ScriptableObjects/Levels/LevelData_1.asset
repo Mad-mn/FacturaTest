@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fec154e133048cb949144da779211a4, type: 3}
   m_Name: LevelData_1
   m_EditorClassIdentifier: Assembly-CSharp::Features.LevelModule.Scripts.LevelData
-  <SideMovingFrequency>k__BackingField: 6
-  <CarSpeed>k__BackingField: 5
+  <SideMovingFrequency>k__BackingField: 4
+  <CarSpeed>k__BackingField: 4
   <MovingDistance>k__BackingField: 200
   <RoadWidth>k__BackingField: 4.8

@@ -46,7 +46,6 @@ namespace Features.TurretModule.Scripts {
                 
                 bullet.transform.position = _turretController.BulletStartPoint.position;
                 bullet.Shot(_turretController.View.transform.forward);
-
                 yield return wait;
             }
         }

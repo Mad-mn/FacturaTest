@@ -38,8 +38,8 @@ namespace Features.CarModule.Scripts {
                 float zPoint = (i + 1) * oneSideDistance;
                 Vector3 targetPoint = new Vector3(xPoint, 0, zPoint);
                 _sideMoving.Append(_car.transform.DOMoveZ(targetPoint.z, sideMovingDuration).SetEase(Ease.Linear));
-                _sideMoving.Join(_car.View.transform.DOMoveX(targetPoint.x, sideMovingDuration).SetEase(Ease.Linear));
-                _sideMoving.Join(_car.View.DOLookAt(targetPoint, ROTATION_DURATION));
+                _sideMoving.Join(_car.transform.DOMoveX(targetPoint.x, sideMovingDuration).SetEase(Ease.Linear));
+                _sideMoving.Join(_car.transform.DOLookAt(targetPoint, ROTATION_DURATION));
             }
         }
 

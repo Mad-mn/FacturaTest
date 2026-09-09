@@ -11,5 +11,6 @@ namespace Features.AddressableModule.Scripts {
         public const string BULLET_CONFIG = "BulletConfig";
         public const string ENEMY = "Enemy";
         public const string ENEMY_SPAWN_CONFIG = "EnemySpawnConfig";
+        public const string CAR_CAMERA = "CarCamera";
     }
 }
