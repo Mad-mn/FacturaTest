@@ -1,5 +1,6 @@
 using System;
 using Features.CarModule.Scripts;
+using Features.HealthModule.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -13,20 +14,15 @@ namespace Features.EnemyModule.Scripts {
         private bool _hasTarget;
         private Transform _target;
         public event Action<Enemy> OnDie;
-        
+
         public void OnSpawned() {
             gameObject.SetActive(true);
             _health.Initialize(100f);
             _health.OnDie += Die;
         }
 
-        private void Die() {
-            OnDie?.Invoke(this);
-        }
-
         public void OnDespawned() {
-            _hasTarget = false;
-            _target = null;
+            ResetTarget();
             _animatorController.StopRun();
             gameObject.SetActive(false);
         }
@@ -34,6 +30,8 @@ namespace Features.EnemyModule.Scripts {
         private void OnCollisionEnter(Collision other) {
             if (other.gameObject.TryGetComponent(out CarController car)) {
                 _health.TakeDamage(100f);
+                IHealth carHealth = car.GetComponent<IHealth>();
+                carHealth.TakeDamage(50);
             }
         }
 
@@ -48,8 +46,22 @@ namespace Features.EnemyModule.Scripts {
         private void Update() {
             if (!_hasTarget)
                 return;
-            
+
             _agent.SetDestination(_target.position);
+        }
+
+        public void Stop() {
+            _animatorController.StopRun();
+            ResetTarget();
+        }
+
+        private void ResetTarget() {
+            _hasTarget = false;
+            _target = null;
+        }
+
+        private void Die() {
+            OnDie?.Invoke(this);
         }
     }
 }

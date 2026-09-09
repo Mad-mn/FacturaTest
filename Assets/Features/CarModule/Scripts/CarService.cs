@@ -13,23 +13,25 @@ namespace Features.CarModule.Scripts {
         private readonly ICarMover _carMover;
         private readonly ILevelService _levelService;
         private readonly ICameraService _cameraService;
+        private readonly CarModel _carModel;
 
         private CarController _carController;
         private CarCamera _carCamera;
 
         public CarService(IInstantiator instantiator, IAddressableService addressableService, ICarMover carMover, ILevelService levelService,
-            ICameraService cameraService) {
+            ICameraService cameraService, CarModel carModel) {
             _instantiator = instantiator;
             _addressableService = addressableService;
             _carMover = carMover;
             _levelService = levelService;
             _cameraService = cameraService;
+            _carModel = carModel;
         }
 
         public async UniTask Initialize() {
-            await SpawnCar();
-            await SpawnCarCamera();
             LevelData levelData = _levelService.GetCurrentLevelData();
+            await SpawnCar(levelData);
+            await SpawnCarCamera();
             _carMover.Initialize(_carController, levelData);
         }
 
@@ -52,10 +54,17 @@ namespace Features.CarModule.Scripts {
             _carMover.Stop();
         }
 
-        private async UniTask SpawnCar() {
+        private async UniTask SpawnCar(LevelData levelData) {
             GameObject prefab = await _addressableService.GetAsset<GameObject>(AssetConstants.CAR);
             _carController = _instantiator.InstantiatePrefabForComponent<CarController>(prefab);
             _carController.transform.position = Vector3.zero;
+            _carController.Initialize(levelData.CarHealth);
+            _carController.OnDie += Die;
+        }
+
+        private void Die() {
+            StopMovement();
+            _carModel.Die();
         }
     }
 }

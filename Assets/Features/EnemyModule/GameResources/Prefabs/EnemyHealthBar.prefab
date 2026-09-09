@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 921378805363321984, guid: 4c28dd7042a63844ebfd0e5aa2928ffd, type: 3}
+      propertyPath: _hideIfFull
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5240878945516586684, guid: 4c28dd7042a63844ebfd0e5aa2928ffd, type: 3}
       propertyPath: m_Name
-      value: HealthBar
+      value: EnemyHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 8982548866970948933, guid: 4c28dd7042a63844ebfd0e5aa2928ffd, type: 3}
       propertyPath: m_Pivot.x

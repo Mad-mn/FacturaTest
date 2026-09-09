@@ -8,5 +8,6 @@ namespace Features.LevelModule.Scripts {
         [field: SerializeField] public float CarSpeed { get; private set; }
         [field: SerializeField] public float MovingDistance { get; private set; }
         [field: SerializeField] public float RoadWidth { get; private set; }
+        [field: SerializeField] public float CarHealth { get; private set; }
     }
 }

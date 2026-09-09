@@ -12,6 +12,8 @@ namespace Features.EnemyModule.Scripts {
         private readonly IConfigHandler<EnemySpawnConfig> _configHandler;
         
         private List<Enemy> _enemies = new List<Enemy>();
+        
+        public IReadOnlyList<Enemy> Enemies => _enemies;
 
         public EnemySpawner(ILevelService levelService, IPool<Enemy> pool, IConfigHandler<EnemySpawnConfig> configHandler) {
             _levelService = levelService;

@@ -12,6 +12,8 @@ namespace Features.HealthModule.Scripts {
         [SerializeField] private Image _fakeFill;
         [SerializeField] private float _fakeFillAnimationDuration = 0.2f;
         [SerializeField] private float _fakeFillAnimationDelay = 0.2f;
+        [SerializeField] private bool _hideIfFull;
+        [SerializeField] private bool _lookAtCameraInUpdate;
 
         private Camera _camera;
         private float _maxHealth;
@@ -32,13 +34,16 @@ namespace Features.HealthModule.Scripts {
             _currentHealth = current;
             _fill.fillAmount = (_currentHealth / _maxHealth);
             if (_currentHealth < _maxHealth)
-                _fakeFill.DOFillAmount(_currentHealth / _maxHealth, _fakeFillAnimationDuration).SetDelay(_fakeFillAnimationDelay);
+                _fakeFill.DOFillAmount(_currentHealth / _maxHealth, _fakeFillAnimationDuration)
+                    .SetDelay(_fakeFillAnimationDelay);
 
-            _canvas.gameObject.SetActive(_fill.fillAmount < 1);
+            if (_hideIfFull)
+                _canvas.gameObject.SetActive(_fill.fillAmount < 1);
         }
 
         private void LateUpdate() {
-            transform.forward = transform.position - _camera.transform.position;
+            if (_lookAtCameraInUpdate)
+                transform.forward = transform.position - _camera.transform.position;
         }
     }
 }

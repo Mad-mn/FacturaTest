@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: -4924241184779812668}
   - component: {fileID: 8768214447464810457}
   - component: {fileID: 8442692905395122178}
+  - component: {fileID: 4442024661582720112}
+  - component: {fileID: 3970252724720498473}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -129,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 3382635889388307349}
   - {fileID: 6002192536053347662}
+  - {fileID: 5163369361287919325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4924241184779812668
@@ -146,6 +149,7 @@ MonoBehaviour:
   _view: {fileID: 3382635889388307349}
   _turretSpawnTransform: {fileID: 2654542335277680361}
   _cameraPoint: {fileID: 6002192536053347662}
+  _health: {fileID: 4442024661582720112}
 --- !u!65 &8768214447464810457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,6 +198,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4442024661582720112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026849114797526682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2567e7b2e8614c3080769fafd39f965a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.CarModule.Scripts.CarHealth
+  _animationController: {fileID: 3970252724720498473}
+  _healthBar: {fileID: 4019164346978832152}
+--- !u!114 &3970252724720498473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026849114797526682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec3c839b94640cb9273eb21ab6a30fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.CarModule.Scripts.Installers.CarAnimationController
+  _view: {fileID: 3382635889388307349}
+  _takeDamagePunchScaleMultiplier: 0.3
+  _takeDamageAnimationDuration: 0.2
 --- !u!1001 &3996887014053451701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,4 +312,121 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c5870ba0b5c37847aeedc1ef79bc996, type: 3}
   m_PrefabInstance: {fileID: 3996887014053451701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7837252135583205479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4916374985294384517}
+    m_Modifications:
+    - target: {fileID: 2267352820394716483, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_Name
+      value: CarHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.3477
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.2713
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9629602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26964357
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.561
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 31.286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558775868025292671, guid: add560418867db1479cae450e1441d48, type: 3}
+      propertyPath: _lookAtCameraInUpdate
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: add560418867db1479cae450e1441d48, type: 3}
+--- !u!114 &4019164346978832152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6558775868025292671, guid: add560418867db1479cae450e1441d48, type: 3}
+  m_PrefabInstance: {fileID: 7837252135583205479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08409a06162c44ac918e09ef321ebccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Features.HealthModule.Scripts.HealthBar
+--- !u!224 &5163369361287919325 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3126758563891412666, guid: add560418867db1479cae450e1441d48, type: 3}
+  m_PrefabInstance: {fileID: 7837252135583205479}
   m_PrefabAsset: {fileID: 0}

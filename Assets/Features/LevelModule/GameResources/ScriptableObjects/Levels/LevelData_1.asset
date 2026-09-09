@@ -16,3 +16,4 @@ MonoBehaviour:
   <CarSpeed>k__BackingField: 4
   <MovingDistance>k__BackingField: 200
   <RoadWidth>k__BackingField: 4.8
+  <CarHealth>k__BackingField: 500
