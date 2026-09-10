@@ -17,4 +17,4 @@ MonoBehaviour:
   <MaxCountInRow>k__BackingField: 5
   <ChanceForNextEnemy>k__BackingField: 0.3
   <LeftRoadBoarder>k__BackingField: -2.4
-  <StartSpawnOffset>k__BackingField: 10
+  <StartSpawnOffset>k__BackingField: 20

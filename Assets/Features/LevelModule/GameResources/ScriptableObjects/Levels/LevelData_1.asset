@@ -15,6 +15,6 @@ MonoBehaviour:
   <SideMovingFrequency>k__BackingField: 4
   <SideMovingWight>k__BackingField: 2.5
   <CarSpeed>k__BackingField: 4
-  <MovingDistance>k__BackingField: 200
+  <MovingDistance>k__BackingField: 100
   <RoadWidth>k__BackingField: 4.8
   <CarHealth>k__BackingField: 500

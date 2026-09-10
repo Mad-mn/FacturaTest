@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TurretConfig
   m_EditorClassIdentifier: Assembly-CSharp::Features.ConfigHandlerModule.Scripts.Turret.TurretConfig
   FireRate: 0.35
-  MaxSideRotationAngle: 60
+  MaxSideRotationAngle: 50
